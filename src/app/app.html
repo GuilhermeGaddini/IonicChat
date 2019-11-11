@@ -1,1 +1,66 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<form *ngIf="!login">
+  <br /><br /><br />
+  <div>
+    <span>
+      <label>Username</label>
+      <input
+        id="float-input"
+        type="text"
+        size="30"
+        [(ngModel)]="usuario"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </span>
+  </div>
+  <br />
+  <div>
+    <span>
+      <label>Password </label>
+      <input id="float-input" type="password" size="30" />
+    </span>
+  </div>
+  <hr />
+  <div>
+    <span>
+      <button ion-button color="dark" (click)="logar()">Login</button>
+    </span>
+  </div>
+</form>
+
+<form *ngIf="login">
+  <br /><br /><br />
+  <div></div>
+  <div>
+    <span>
+      <textarea
+        [rows]="10"
+        [cols]="50"
+        disabled="true"
+        [(ngModel)]="mainObject"
+        [ngModelOptions]="{ standalone: true }"
+      ></textarea>
+    </span>
+  </div>
+  <div>
+    <span>
+      <label>Digite sua mensagem aqui!</label>
+      <textarea
+        [rows]="5"
+        [cols]="35"
+        autoResize="autoResize"
+        [(ngModel)]="mensagens"
+        [ngModelOptions]="{ standalone: true }"
+      ></textarea>
+    </span>
+    <span>
+      <button
+        ion-button
+        color="dark"
+        (click)="enviar()"
+        style="margin-bottom: 50px;"
+      >
+        Enviar
+      </button>
+    </span>
+  </div>
+</form>

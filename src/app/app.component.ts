@@ -9,6 +9,10 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   rootPage:any = HomePage;
+  login: boolean = false;
+  usuario: string;
+  mensagens:string;
+  mainObject: string;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -17,6 +21,14 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+  }
+
+  logar() {
+    this.login = !this.login;
+  }
+
+  enviar() {
+    this.mainObject = this.usuario + ": " + this.mensagens;
   }
 }
 
